@@ -1,0 +1,11 @@
+<svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left pillar + arch top -->
+  <path d="M10 140 L10 55 C10 20 30 0 60 0 C90 0 110 20 110 55 L110 55 L75 55 L75 70 L10 70 Z" fill="#FFE500"/>
+  <!-- Left pillar bottom -->
+  <rect x="10" y="70" width="28" height="70" fill="#FFE500"/>
+  <!-- Window grid 2x2 -->
+  <rect x="48" y="72" width="25" height="27" fill="#FFE500"/>
+  <rect x="80" y="72" width="25" height="27" fill="#FFE500"/>
+  <rect x="48" y="106" width="25" height="27" fill="#FFE500"/>
+  <rect x="80" y="106" width="25" height="27" fill="#FFE500"/>
+</svg>
