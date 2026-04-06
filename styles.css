@@ -252,7 +252,7 @@ a {
 
 .hero-window {
     position: absolute;
-    inset: 6vh 4vw 8vh;
+    inset: 3vh 2vw 4vh;
     z-index: 2;
 }
 
@@ -265,38 +265,38 @@ a {
 
 .room-wall-left {
     top: 0; left: 0; bottom: 0;
-    width: 4vw;
+    width: 2vw;
     background: linear-gradient(90deg, #c8c0b4 0%, #d8d0c4 40%, #e0d8cc 100%);
-    box-shadow: inset -8px 0 20px rgba(0,0,0,0.15);
+    box-shadow: inset -6px 0 14px rgba(0,0,0,0.15);
 }
 
 .room-wall-right {
     top: 0; right: 0; bottom: 0;
-    width: 4vw;
+    width: 2vw;
     background: linear-gradient(-90deg, #c8c0b4 0%, #d8d0c4 40%, #e0d8cc 100%);
-    box-shadow: inset 8px 0 20px rgba(0,0,0,0.15);
+    box-shadow: inset 6px 0 14px rgba(0,0,0,0.15);
 }
 
 .room-wall-top {
     top: 0; left: 0; right: 0;
-    height: 6vh;
+    height: 3vh;
     background: linear-gradient(180deg, #c0b8ac 0%, #d0c8bc 50%, #dcd4c8 100%);
-    box-shadow: inset 0 -6px 16px rgba(0,0,0,0.12);
+    box-shadow: inset 0 -4px 12px rgba(0,0,0,0.12);
 }
 
 .room-wall-bottom {
     bottom: 0; left: 0; right: 0;
-    height: 8vh;
+    height: 4vh;
     background: linear-gradient(0deg, #b8b0a4 0%, #c8c0b4 30%, #d4ccbe 100%);
-    box-shadow: inset 0 6px 16px rgba(0,0,0,0.1);
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .room-radiator {
     position: absolute;
     bottom: 0;
-    left: 15%;
-    right: 15%;
-    height: 60%;
+    left: 20%;
+    right: 20%;
+    height: 50%;
     background: repeating-linear-gradient(
         90deg,
         #e0dcd6 0px, #e0dcd6 18px,
@@ -336,7 +336,7 @@ a {
 .dormant-top {
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 42px;
+    height: 28px;
     background:
         linear-gradient(180deg,
             #505050 0%, #5e5e5e 8%, #6a6a6a 16%, #626262 24%,
@@ -351,7 +351,7 @@ a {
 .dormant-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 48px;
+    height: 32px;
     background:
         linear-gradient(0deg,
             #484848 0%, #565656 10%, #626262 20%, #5a5a5a 35%,
@@ -363,8 +363,8 @@ a {
 
 .dormant-left {
     position: absolute;
-    top: 42px; left: 0; bottom: 48px;
-    width: 34px;
+    top: 28px; left: 0; bottom: 32px;
+    width: 22px;
     background:
         linear-gradient(90deg,
             #4e4e4e 0%, #5c5c5c 12%, #686868 28%, #606060 44%,
@@ -377,8 +377,8 @@ a {
 
 .dormant-right {
     position: absolute;
-    top: 42px; right: 0; bottom: 48px;
-    width: 34px;
+    top: 28px; right: 0; bottom: 32px;
+    width: 22px;
     background:
         linear-gradient(-90deg,
             #4e4e4e 0%, #5c5c5c 12%, #686868 28%, #606060 44%,
@@ -392,10 +392,10 @@ a {
 /* Center mullion */
 .dormant-mullion {
     position: absolute;
-    top: 42px; bottom: 48px;
+    top: 28px; bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
-    width: 22px;
+    width: 16px;
     background:
         linear-gradient(90deg,
             #4a4a4a 0%, #5a5a5a 15%, #686868 30%, #6e6e6e 50%,
@@ -431,7 +431,7 @@ a {
 /* Dormant inner groove + seal */
 .dormant-groove {
     position: absolute;
-    bottom: 0; left: 34px; right: 34px;
+    bottom: 0; left: 22px; right: 22px;
     height: 3px;
     background: #2a2a2a;
 }
@@ -447,14 +447,14 @@ a {
 
 .dormant-seal {
     position: absolute;
-    bottom: 3px; left: 34px; right: 34px;
+    bottom: 3px; left: 22px; right: 22px;
     height: 2px;
     background: #111;
 }
 
 .dormant-rail {
     position: absolute;
-    top: 0; left: 34px; right: 34px;
+    top: 0; left: 22px; right: 22px;
     height: 5px;
     background: linear-gradient(180deg, #555, #666, #555);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
@@ -496,22 +496,22 @@ a {
 /* ===== SLIDING GLASS PANELS (ouvrants) ===== */
 .window-panel {
     position: absolute;
-    top: 42px;
-    bottom: 48px;
+    top: 28px;
+    bottom: 32px;
     z-index: 8;
     transition: transform 0.05s linear;
     will-change: transform;
 }
 
 .window-left {
-    left: 34px;
-    right: calc(50% + 11px);
+    left: 22px;
+    right: calc(50% + 8px);
     transform-origin: left center;
 }
 
 .window-right {
-    left: calc(50% + 11px);
-    right: 34px;
+    left: calc(50% + 8px);
+    right: 22px;
     transform-origin: right center;
 }
 
@@ -523,7 +523,7 @@ a {
 
 .ouvrant-top {
     top: 0; left: 0; right: 0;
-    height: 24px;
+    height: 16px;
     background:
         linear-gradient(180deg,
             #606060 0%, #727272 15%, #7c7c7c 30%, #747474 50%,
@@ -536,7 +536,7 @@ a {
 
 .ouvrant-bottom {
     bottom: 0; left: 0; right: 0;
-    height: 30px;
+    height: 20px;
     background:
         linear-gradient(0deg,
             #565656 0%, #646464 15%, #727272 35%, #6a6a6a 55%,
@@ -547,8 +547,8 @@ a {
 }
 
 .ouvrant-left {
-    top: 24px; bottom: 30px; left: 0;
-    width: 20px;
+    top: 16px; bottom: 20px; left: 0;
+    width: 14px;
     background:
         linear-gradient(90deg,
             #585858 0%, #686868 20%, #767676 45%, #6e6e6e 65%, #646464 85%, #5c5c5c 100%);
@@ -558,8 +558,8 @@ a {
 }
 
 .ouvrant-right {
-    top: 24px; bottom: 30px; right: 0;
-    width: 20px;
+    top: 16px; bottom: 20px; right: 0;
+    width: 14px;
     background:
         linear-gradient(-90deg,
             #585858 0%, #686868 20%, #767676 45%, #6e6e6e 65%, #646464 85%, #5c5c5c 100%);
@@ -574,14 +574,14 @@ a {
 }
 
 .ouvrant-top .ouvrant-inner {
-    bottom: 3px; left: 20px; right: 20px;
+    bottom: 3px; left: 14px; right: 14px;
     height: 1px;
     background: rgba(0,0,0,0.2);
     box-shadow: 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .ouvrant-bottom .ouvrant-inner {
-    top: 3px; left: 20px; right: 20px;
+    top: 3px; left: 14px; right: 14px;
     height: 1px;
     background: rgba(0,0,0,0.2);
     box-shadow: 0 -1px 0 rgba(255,255,255,0.06);
@@ -609,34 +609,34 @@ a {
 }
 
 .gasket-top {
-    top: 24px; left: 20px; right: 20px;
-    height: 3px;
+    top: 16px; left: 14px; right: 14px;
+    height: 2px;
     border-radius: 0 0 1px 1px;
 }
 
 .gasket-bottom {
-    bottom: 30px; left: 20px; right: 20px;
-    height: 3px;
+    bottom: 20px; left: 14px; right: 14px;
+    height: 2px;
     border-radius: 1px 1px 0 0;
 }
 
 .gasket-left {
-    top: 27px; bottom: 33px; left: 20px;
-    width: 3px;
+    top: 18px; bottom: 22px; left: 14px;
+    width: 2px;
     border-radius: 0 1px 1px 0;
 }
 
 .gasket-right {
-    top: 27px; bottom: 33px; right: 20px;
-    width: 3px;
+    top: 18px; bottom: 22px; right: 14px;
+    width: 2px;
     border-radius: 1px 0 0 1px;
 }
 
 /* ===== DOUBLE GLAZING UNIT ===== */
 .glazing {
     position: absolute;
-    top: 27px; bottom: 33px;
-    left: 23px; right: 23px;
+    top: 18px; bottom: 22px;
+    left: 16px; right: 16px;
     overflow: hidden;
     z-index: 2;
 }
@@ -750,8 +750,8 @@ a {
     z-index: 14;
 }
 
-.cremone-right { right: 26px; }
-.cremone-left { left: 26px; }
+.cremone-right { right: 18px; }
+.cremone-left { left: 18px; }
 
 .cremone-plate {
     width: 16px;
@@ -1949,6 +1949,96 @@ a {
 
     .menu-toggle {
         display: flex;
+    }
+
+    /* Hero window: full-bleed on mobile */
+    .hero-window {
+        inset: 1vh 0 2vh;
+    }
+
+    .room-wall-left,
+    .room-wall-right {
+        width: 0;
+    }
+
+    .room-wall-top {
+        height: 1vh;
+    }
+
+    .room-wall-bottom {
+        height: 2vh;
+    }
+
+    .room-radiator {
+        display: none;
+    }
+
+    .dormant-left,
+    .dormant-right {
+        width: 12px;
+    }
+
+    .dormant-top {
+        height: 18px;
+    }
+
+    .dormant-bottom {
+        height: 22px;
+    }
+
+    .dormant-mullion {
+        top: 18px;
+        bottom: 22px;
+        width: 12px;
+    }
+
+    .dormant-left {
+        top: 18px;
+        bottom: 22px;
+    }
+
+    .dormant-right {
+        top: 18px;
+        bottom: 22px;
+    }
+
+    .window-panel {
+        top: 18px;
+        bottom: 22px;
+    }
+
+    .window-left {
+        left: 12px;
+        right: calc(50% + 6px);
+    }
+
+    .window-right {
+        left: calc(50% + 6px);
+        right: 12px;
+    }
+
+    .dormant-groove {
+        left: 12px;
+        right: 12px;
+    }
+
+    .dormant-seal {
+        left: 12px;
+        right: 12px;
+    }
+
+    .dormant-rail {
+        left: 12px;
+        right: 12px;
+    }
+
+    .window-sill {
+        left: -4px;
+        right: -4px;
+    }
+
+    .hero-content {
+        padding: 0 24px;
     }
 
     .trust-items {
