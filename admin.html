@@ -131,6 +131,27 @@
                     </div>
                 </div>
 
+                <!-- Traffic Chart -->
+                <div class="admin-card chart-card">
+                    <div class="card-header">
+                        <h3>Évolution du trafic</h3>
+                        <div class="card-filters">
+                            <button class="filter-btn" data-range="7">7 jours</button>
+                            <button class="filter-btn active" data-range="30">30 jours</button>
+                            <button class="filter-btn" data-range="90">3 mois</button>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <div class="chart-legend">
+                            <span class="chart-legend-item"><span class="legend-dot legend-dot-blue"></span>Visiteurs</span>
+                            <span class="chart-legend-item"><span class="legend-dot legend-dot-yellow"></span>Pages vues</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dashboard-grid">
                     <div class="admin-card">
                         <div class="card-header">
