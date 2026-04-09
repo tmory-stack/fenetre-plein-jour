@@ -126,8 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let currentRange = 30;
+    let chartState = null; // stored for hover
 
-    function drawChart(range) {
+    function drawChart(range, hoverIndex) {
         currentRange = range;
         const canvas = document.getElementById('trafficChart');
         if (!canvas) return;
@@ -148,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ctx.clearRect(0, 0, w, h);
 
-        // Find max for scale
         const allVals = [...data.visitors, ...data.pageviews];
         const maxVal = Math.ceil(Math.max(...allVals) * 1.15 / 10) * 10;
 
@@ -191,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function drawLine(points, color, fillColor) {
-            // Fill area
             ctx.beginPath();
             ctx.moveTo(points[0].x, padT + chartH);
             points.forEach(p => ctx.lineTo(p.x, p.y));
@@ -203,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillStyle = grad;
             ctx.fill();
 
-            // Smooth line
             ctx.beginPath();
             ctx.moveTo(points[0].x, points[0].y);
             for (let i = 0; i < points.length - 1; i++) {
@@ -218,14 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.lineJoin = 'round';
             ctx.stroke();
 
-            // Dots
-            points.forEach(p => {
+            points.forEach((p, i) => {
+                const isHovered = hoverIndex === i;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, isHovered ? 5 : 3, 0, Math.PI * 2);
                 ctx.fillStyle = color;
                 ctx.fill();
                 ctx.strokeStyle = '#1a1d27';
-                ctx.lineWidth = 2;
+                ctx.lineWidth = isHovered ? 3 : 2;
                 ctx.stroke();
             });
         }
@@ -234,10 +232,123 @@ document.addEventListener('DOMContentLoaded', () => {
         const vPoints = getPoints(data.visitors);
         drawLine(pvPoints, '#FFE500', 'rgba(255,229,0,0.12)');
         drawLine(vPoints, '#3b82f6', 'rgba(59,130,246,0.12)');
+
+        // Store state for hover detection
+        chartState = { data, vPoints, pvPoints, padL, padR, padT, padB, chartW, chartH, w, h };
+
+        // Draw hover crosshair + tooltip
+        if (hoverIndex !== undefined && hoverIndex >= 0 && hoverIndex < data.labels.length) {
+            const hx = vPoints[hoverIndex].x;
+
+            // Vertical dashed line
+            ctx.save();
+            ctx.setLineDash([4, 4]);
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(hx, padT);
+            ctx.lineTo(hx, padT + chartH);
+            ctx.stroke();
+            ctx.restore();
+
+            // Tooltip
+            const label = data.labels[hoverIndex];
+            const vis = data.visitors[hoverIndex];
+            const pv = data.pageviews[hoverIndex];
+            const text1 = label;
+            const text2 = `Visiteurs: ${vis}`;
+            const text3 = `Pages vues: ${pv}`;
+
+            ctx.font = '600 11px Inter, sans-serif';
+            const tw1 = ctx.measureText(text1).width;
+            ctx.font = '11px Inter, sans-serif';
+            const tw2 = ctx.measureText(text2).width;
+            const tw3 = ctx.measureText(text3).width;
+            const tooltipW = Math.max(tw1, tw2, tw3) + 28;
+            const tooltipH = 72;
+
+            let tx = hx + 12;
+            if (tx + tooltipW > w - padR) tx = hx - tooltipW - 12;
+            let ty = Math.min(vPoints[hoverIndex].y, pvPoints[hoverIndex].y) - tooltipH / 2;
+            ty = Math.max(padT, Math.min(ty, padT + chartH - tooltipH));
+
+            // Shadow
+            ctx.shadowColor = 'rgba(0,0,0,0.4)';
+            ctx.shadowBlur = 12;
+            ctx.shadowOffsetY = 4;
+
+            // Background
+            ctx.fillStyle = '#232735';
+            ctx.beginPath();
+            ctx.roundRect(tx, ty, tooltipW, tooltipH, 8);
+            ctx.fill();
+
+            ctx.shadowColor = 'transparent';
+
+            // Border
+            ctx.strokeStyle = '#3a3f54';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(tx, ty, tooltipW, tooltipH, 8);
+            ctx.stroke();
+
+            // Text
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillStyle = '#e4e6f0';
+            ctx.font = '600 11px Inter, sans-serif';
+            ctx.fillText(text1, tx + 12, ty + 10);
+
+            ctx.fillStyle = '#3b82f6';
+            ctx.font = '11px Inter, sans-serif';
+            ctx.fillText('\u25CF', tx + 12, ty + 28);
+            ctx.fillStyle = '#c8cce0';
+            ctx.fillText(text2, tx + 24, ty + 28);
+
+            ctx.fillStyle = '#FFE500';
+            ctx.fillText('\u25CF', tx + 12, ty + 46);
+            ctx.fillStyle = '#c8cce0';
+            ctx.fillText(text3, tx + 24, ty + 46);
+        }
     }
 
     // Initial draw
     setTimeout(() => drawChart(30), 100);
+
+    // Hover handling
+    const trafficCanvas = document.getElementById('trafficChart');
+    if (trafficCanvas) {
+        trafficCanvas.addEventListener('mousemove', (e) => {
+            if (!chartState) return;
+            const rect = trafficCanvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const { vPoints } = chartState;
+
+            // Find closest data point
+            let closest = -1;
+            let closestDist = Infinity;
+            vPoints.forEach((p, i) => {
+                const dist = Math.abs(p.x - mx);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closest = i;
+                }
+            });
+
+            if (closestDist < 30) {
+                trafficCanvas.style.cursor = 'crosshair';
+                drawChart(currentRange, closest);
+            } else {
+                trafficCanvas.style.cursor = 'default';
+                drawChart(currentRange);
+            }
+        });
+
+        trafficCanvas.addEventListener('mouseleave', () => {
+            trafficCanvas.style.cursor = 'default';
+            drawChart(currentRange);
+        });
+    }
 
     // Range filter clicks
     document.querySelectorAll('.chart-card .filter-btn').forEach(btn => {
