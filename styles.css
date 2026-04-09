@@ -1676,6 +1676,15 @@ a {
     color: var(--accent);
 }
 
+.admin-link {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.admin-link:hover {
+    opacity: 1;
+}
+
 /* ===== LIGHTBOX / CAROUSEL ===== */
 .lightbox {
     position: fixed;

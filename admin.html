@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Fenêtre Plein Jour</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <img src="logo.svg" alt="Fenêtre Plein Jour" class="login-logo" width="48" height="56">
+            <h1>Administration</h1>
+            <p>Connectez-vous pour accéder au back-office</p>
+            <form id="loginForm">
+                <div class="login-field">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" placeholder="Entrez le mot de passe" autofocus>
+                    <span class="login-error" id="loginError">Mot de passe incorrect</span>
+                </div>
+                <button type="submit" class="login-btn">Se connecter</button>
+            </form>
+            <a href="index.html" class="login-back">&larr; Retour au site</a>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-app" id="adminApp">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.svg" alt="Logo" width="28" height="33">
+                <span>Fenêtre Plein Jour</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    Tableau de bord
+                </a>
+                <a href="#" class="sidebar-link" data-section="realisations">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    Réalisations
+                </a>
+                <a href="#" class="sidebar-link" data-section="avis">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Avis clients
+                </a>
+                <a href="#" class="sidebar-link" data-section="devis">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Demandes de devis
+                </a>
+                <a href="#" class="sidebar-link" data-section="parametres">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    Paramètres
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                    Voir le site
+                </a>
+                <button class="sidebar-link sidebar-logout" id="logoutBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Déconnexion
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <h2 class="admin-page-title" id="pageTitle">Tableau de bord</h2>
+                <div class="admin-user">
+                    <span>Admin</span>
+                    <div class="admin-avatar">A</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="sec-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">1 248</span>
+                            <span class="stat-label">Visiteurs ce mois</span>
+                        </div>
+                        <span class="stat-trend stat-up">+12%</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-yellow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">23</span>
+                            <span class="stat-label">Demandes de devis</span>
+                        </div>
+                        <span class="stat-trend stat-up">+8%</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">4.8/5</span>
+                            <span class="stat-label">Note moyenne</span>
+                        </div>
+                        <span class="stat-trend stat-up">+0.2</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Réalisations publiées</span>
+                        </div>
+                        <span class="stat-trend stat-neutral">-</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3>Dernières demandes de devis</h3>
+                        </div>
+                        <table class="admin-table">
+                            <thead><tr><th>Nom</th><th>Prestation</th><th>Date</th><th>Statut</th></tr></thead>
+                            <tbody>
+                                <tr><td>Marie Dupont</td><td>Fenêtres PVC</td><td>08/04/2026</td><td><span class="badge badge-new">Nouveau</span></td></tr>
+                                <tr><td>Jean Martin</td><td>Baie vitrée</td><td>07/04/2026</td><td><span class="badge badge-progress">En cours</span></td></tr>
+                                <tr><td>Claire Leblanc</td><td>Porte entrée</td><td>05/04/2026</td><td><span class="badge badge-done">Traité</span></td></tr>
+                                <tr><td>Pierre Morel</td><td>Volets roulants</td><td>04/04/2026</td><td><span class="badge badge-done">Traité</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h3>Derniers avis</h3>
+                        </div>
+                        <div class="recent-reviews">
+                            <div class="review-item">
+                                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p>"Travail impeccable, equipe tres professionnelle."</p>
+                                <span class="review-author">- Laurent P. - 06/04/2026</span>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p>"Baie vitree magnifique, pose rapide et soignee."</p>
+                                <span class="review-author">- Nathalie R. - 03/04/2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Realisations Section -->
+            <section class="admin-section" id="sec-realisations">
+                <div class="section-toolbar">
+                    <button class="btn-admin btn-admin-primary" id="btnAddRealisation">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Ajouter une réalisation
+                    </button>
+                </div>
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead><tr><th>Image</th><th>Titre</th><th>Catégorie</th><th>Date</th><th>Actions</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="table-thumb" style="background-image:url('images/realisations/1.JPG')"></div></td>
+                                <td><strong>Maison en briques - Douaisis</strong></td>
+                                <td>Fenêtres aluminium cintrées</td>
+                                <td>15/03/2026</td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="table-thumb" style="background:linear-gradient(135deg,#b7cfe8,#7da6c4)"></div></td>
+                                <td><strong>Maison de maître - Sin-le-Noble</strong></td>
+                                <td>Rénovation complète</td>
+                                <td>02/02/2026</td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="table-thumb" style="background:linear-gradient(135deg,#d5e8b7,#a6c47d)"></div></td>
+                                <td><strong>Pavillon - Lambres-lez-Douai</strong></td>
+                                <td>Porte d'entrée</td>
+                                <td>20/01/2026</td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="table-thumb" style="background:linear-gradient(135deg,#e8b7d5,#c47da6)"></div></td>
+                                <td><strong>Appartement - Centre de Douai</strong></td>
+                                <td>Fenêtres PVC</td>
+                                <td>10/01/2026</td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Avis Section -->
+            <section class="admin-section" id="sec-avis">
+                <div class="section-toolbar">
+                    <button class="btn-admin btn-admin-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Ajouter un avis
+                    </button>
+                </div>
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead><tr><th>Client</th><th>Note</th><th>Avis</th><th>Prestation</th><th>Publié</th><th>Actions</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marie L.</strong></td>
+                                <td><span class="review-stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></td>
+                                <td class="td-truncate">Nous avons fait remplacer toutes les fenêtres...</td>
+                                <td>Fenêtres PVC</td>
+                                <td><span class="badge badge-done">Oui</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Philippe D.</strong></td>
+                                <td><span class="review-stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></td>
+                                <td class="td-truncate">Très satisfait de la baie vitrée coulissante...</td>
+                                <td>Baie vitrée</td>
+                                <td><span class="badge badge-done">Oui</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sophie B.</strong></td>
+                                <td><span class="review-stars-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></td>
+                                <td class="td-truncate">Excellent conseil sur les aides financières...</td>
+                                <td>Porte & volets</td>
+                                <td><span class="badge badge-done">Oui</span></td>
+                                <td class="table-actions">
+                                    <button class="btn-icon" title="Modifier"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                    <button class="btn-icon btn-icon-danger" title="Supprimer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Devis Section -->
+            <section class="admin-section" id="sec-devis">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h3>Demandes de devis reçues</h3>
+                        <div class="card-filters">
+                            <button class="filter-btn active">Tous (23)</button>
+                            <button class="filter-btn">Nouveaux (5)</button>
+                            <button class="filter-btn">En cours (8)</button>
+                            <button class="filter-btn">Traités (10)</button>
+                        </div>
+                    </div>
+                    <table class="admin-table">
+                        <thead><tr><th>Nom</th><th>Email</th><th>Téléphone</th><th>Prestation</th><th>Ville</th><th>Date</th><th>Statut</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Marie Dupont</strong></td><td>m.dupont@email.fr</td><td>06 12 34 56 78</td><td>Fenêtres PVC</td><td>Douai</td><td>08/04/2026</td><td><span class="badge badge-new">Nouveau</span></td></tr>
+                            <tr><td><strong>Jean Martin</strong></td><td>j.martin@email.fr</td><td>06 98 76 54 32</td><td>Baie vitrée</td><td>Sin-le-Noble</td><td>07/04/2026</td><td><span class="badge badge-progress">En cours</span></td></tr>
+                            <tr><td><strong>Lucie Bernard</strong></td><td>l.bernard@email.fr</td><td>07 11 22 33 44</td><td>Porte entrée</td><td>Cuincy</td><td>06/04/2026</td><td><span class="badge badge-new">Nouveau</span></td></tr>
+                            <tr><td><strong>Claire Leblanc</strong></td><td>c.leblanc@email.fr</td><td>06 55 44 33 22</td><td>Porte entrée</td><td>Lambres</td><td>05/04/2026</td><td><span class="badge badge-done">Traité</span></td></tr>
+                            <tr><td><strong>Pierre Morel</strong></td><td>p.morel@email.fr</td><td>06 77 88 99 00</td><td>Volets roulants</td><td>Waziers</td><td>04/04/2026</td><td><span class="badge badge-done">Traité</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Parametres Section -->
+            <section class="admin-section" id="sec-parametres">
+                <div class="settings-grid">
+                    <div class="admin-card">
+                        <div class="card-header"><h3>Informations de la société</h3></div>
+                        <form class="admin-form">
+                            <div class="form-row">
+                                <label>Nom de l'entreprise</label>
+                                <input type="text" value="Fenêtre Plein Jour">
+                            </div>
+                            <div class="form-row">
+                                <label>Adresse</label>
+                                <input type="text" value="4120 Route de Tournai">
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-row">
+                                    <label>Code postal</label>
+                                    <input type="text" value="59500">
+                                </div>
+                                <div class="form-row">
+                                    <label>Ville</label>
+                                    <input type="text" value="Douai">
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-row">
+                                    <label>Téléphone</label>
+                                    <input type="tel" value="03 27 00 00 00">
+                                </div>
+                                <div class="form-row">
+                                    <label>Email</label>
+                                    <input type="email" value="contact@fenetre-plein-jour.fr">
+                                </div>
+                            </div>
+                            <button type="button" class="btn-admin btn-admin-primary">Enregistrer</button>
+                        </form>
+                    </div>
+                    <div class="admin-card">
+                        <div class="card-header"><h3>Horaires d'ouverture</h3></div>
+                        <form class="admin-form">
+                            <div class="form-row-2">
+                                <div class="form-row"><label>Lundi - Vendredi</label><input type="text" value="8h - 18h"></div>
+                                <div class="form-row"><label>Samedi</label><input type="text" value="9h - 12h"></div>
+                            </div>
+                            <div class="form-row"><label>Dimanche</label><input type="text" value="Fermé"></div>
+                            <button type="button" class="btn-admin btn-admin-primary">Enregistrer</button>
+                        </form>
+                    </div>
+                    <div class="admin-card">
+                        <div class="card-header"><h3>Mot de passe admin</h3></div>
+                        <form class="admin-form">
+                            <div class="form-row"><label>Mot de passe actuel</label><input type="password" placeholder="********"></div>
+                            <div class="form-row"><label>Nouveau mot de passe</label><input type="password" placeholder="Nouveau mot de passe"></div>
+                            <button type="button" class="btn-admin btn-admin-primary">Modifier</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal template -->
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-modal-backdrop"></div>
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3 id="modalTitle">Ajouter une réalisation</h3>
+                <button class="admin-modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                <form class="admin-form">
+                    <div class="form-row"><label>Titre du projet</label><input type="text" placeholder="Ex: Villa contemporaine - Douai"></div>
+                    <div class="form-row"><label>Catégorie</label>
+                        <select><option>Fenêtres aluminium</option><option>Fenêtres PVC</option><option>Baie vitrée</option><option>Porte d'entrée</option><option>Volets roulants</option><option>Rénovation complète</option></select>
+                    </div>
+                    <div class="form-row"><label>Description</label><textarea rows="3" placeholder="Décrivez le projet..."></textarea></div>
+                    <div class="form-row"><label>Photos</label><input type="file" multiple accept="image/*"></div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="btn-admin btn-admin-ghost" id="modalCancel">Annuler</button>
+                <button class="btn-admin btn-admin-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
